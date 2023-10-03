@@ -7,8 +7,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <AppBar />
-      <AppBody />
+      <AppBar style={styles.container}/>
+      <AppBody style={styles.container}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,8 +17,8 @@ export default function App() {
 const AppBar = () => {
 
   return (
-    <View style={styles.appBar}>
-      <Text>Welcome to Work-Time-App</Text>
+    <View style={styles.headerBar}>
+      <Text style={[styles.headerText]}>Welcome to Work-Time-App</Text>
     </View>
   )
 }
@@ -65,7 +65,9 @@ const DataItems = () => {
   const data = [{key: 1, name: 'say hello'}, {key: 2, name: 'make coffe'}]
 
   return (
-    <View>
+    <View
+    style={{width: '100%', maxHeight: '100%', overflow: 'visible'}}
+    >
       <FlatList 
         data={data}
         renderItem={(item) => 
@@ -82,14 +84,21 @@ const DataItems = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ff2',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  appBar: {
+  headerBar: {
+    paddingTop: 25,
+    paddingBottom: 35,
+
+  },
+  headerText: {
     textAlign: 'center',
     fontFamily: 'sans-serif',
-    marginTop: 500
+    fontSize: 24,
+    fontWeight: '900'
+    
   },
   tableRow: {
     flexDirection: 'row'
